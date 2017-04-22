@@ -1,42 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.punchlines.punchline.random.RandomPunchlineActivity">
+    android:paddingTop="@dimen/activity_vertical_margin">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:paddingBottom="80dp">
-
-        <TextView
-            android:id="@+id/punchline"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:gravity="center"
-            android:textSize="24sp" />
-
-        <TextView
-            android:id="@+id/artist"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="16sp" />
-
-        <TextView
-            android:id="@+id/album"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="12sp" />
-    </LinearLayout>
+    <include
+        android:id="@+id/random"
+        layout="@layout/punchline_layout"/>
 
     <!--TODO: Use a container without display semantics -->
     <LinearLayout
@@ -52,7 +25,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:contentDescription="@string/next_punchline"
-            android:onClick="nextPunchline"
             android:src="@drawable/punch"
             android:visibility="gone" />
 

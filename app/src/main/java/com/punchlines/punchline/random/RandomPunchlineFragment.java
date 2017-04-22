@@ -1,52 +1,53 @@
 package com.punchlines.punchline.random;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.TextView;
+import android.view.ViewGroup;
 
 import com.punchlines.R;
+import com.punchlines.punchline.common.dagger.PunchlineFragment;
+import com.punchlines.punchline.common.dagger.PunchlineComponent;
+import com.punchlines.punchline.common.display.PunchlineLayout;
 import com.punchlines.punchline.paas.PaasService;
 import com.punchlines.punchline.paas.Punchline;
-import com.punchlines.punchline.dagger.PunchlineActivity;
-import com.punchlines.punchline.dagger.PunchlineComponent;
 
 import javax.inject.Inject;
 
-public class RandomPunchlineActivity extends PunchlineActivity {
+public class RandomPunchlineFragment extends PunchlineFragment implements View.OnClickListener{
 
     @Inject
     protected PaasService service;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_random_punchline);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        super.onCreateView(inflater, container, savedInstanceState);
+
+        return inflater.inflate(R.layout.random_fragment, container, false);
+    }
+
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
 
         showSpinner();
         service.randomPunchline()
                 .thenAccept(this::displayPunchline)
                 .thenRun(this::hideSpinner);
+
+        findViewById(R.id.next_punchline).setOnClickListener(this);
     }
 
-    private void displayPunchline(Punchline punchline) {
-        TextView text = (TextView) findViewById(R.id.punchline);
-        TextView artist = (TextView) findViewById(R.id.artist);
-        TextView album = (TextView) findViewById(R.id.album);
-
-        runOnUiThread(() -> {
-            text.setText(punchline.punchline);
-            artist.setText(punchline.artist);
-            album.setText(punchline.album);
-        });
-    }
-
-
-    public void nextPunchline(View view) {
+    public void nextPunchline() {
         runOnUiThread(this::showSpinner);
 
         service.randomPunchline()
                 .thenAccept(this::displayPunchline)
                 .thenRun(() -> runOnUiThread(this::hideSpinner));
+    }
+
+    private void displayPunchline(Punchline p) {
+        PunchlineLayout.displayPunchline(getActivity(), findViewById(R.id.random), p);
     }
 
     public void showSpinner() {
@@ -69,6 +70,13 @@ public class RandomPunchlineActivity extends PunchlineActivity {
 
     protected void inject(PunchlineComponent component) {
         component.inject(this);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.next_punchline: nextPunchline(); break;
+        }
     }
 
 }

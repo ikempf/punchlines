@@ -10,8 +10,8 @@ public class PaasService {
         this.repository = repository;
     }
 
-    public CompletableFuture<Punchline> punchlineOfTheDay() {
-        return repository.punchlineOfTheDay();
+    public CompletableFuture<Punchline> dailyPunchline() {
+        return repository.dailyPunchline();
     }
 
     public CompletableFuture<Punchline> randomPunchline() {

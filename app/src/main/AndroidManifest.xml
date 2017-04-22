@@ -19,7 +19,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.punchlines.punchline.random.RandomPunchlineActivity"/>
+        <activity
+            android:name="com.punchlines.punchline.tabs.TabsActivity" />
     </application>
 
 

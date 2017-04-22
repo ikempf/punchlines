@@ -1,4 +1,4 @@
-package com.punchlines.punchline.dagger;
+package com.punchlines.punchline.common.dagger;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;

@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">Punchlines</string>
+    <string name="daily">Daily</string>
+    <string name="random">Random</string>
     <string name="next_punchline">Next punchline</string>
+    <string name="artists">Artists</string>
+    <string name="settings">Settings</string>
 </resources>

@@ -8,7 +8,7 @@ import retrofit2.http.GET;
 public interface PaasRepository {
 
     @GET(Configuration.DAILY)
-    CompletableFuture<Punchline> punchlineOfTheDay();
+    CompletableFuture<Punchline> dailyPunchline();
 
     @GET(Configuration.RANDOM)
     CompletableFuture<Punchline> randomPunchline();
