@@ -2,7 +2,7 @@
 <resources>
     <color name="primary">#009688</color>
     <color name="primaryDark">#00695C</color>
-    <color name="textColor">#00695C</color>
-    <color name="textColorInactive">#757575</color>
+    <color name="textColorActive">#00695C</color>
+    <color name="textColorPrimary">#757575</color>
     <color name="textColorPrimaryInverse">#FFF</color>
 </resources>

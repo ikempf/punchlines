@@ -9,7 +9,7 @@
 
     <include
         android:id="@+id/random"
-        layout="@layout/punchline_layout"/>
+        layout="@layout/home_punchline_layout"/>
 
     <!--TODO: Use a container without display semantics -->
     <LinearLayout

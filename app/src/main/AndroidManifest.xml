@@ -13,14 +13,17 @@
         <activity
             android:name="com.punchlines.punchline.splash.SplashActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar"
-            android:noHistory="true" >
+            android:noHistory="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".punchline.home.tabs.HomeActivity" />
         <activity
-            android:name="com.punchlines.punchline.tabs.TabsActivity" />
+            android:label="@string/artists"
+            android:name=".punchline.artists.ArtistsActivity" />
+        <activity android:name=".punchline.artists.ArtistPunchlinesActivity" />
     </application>
 
 

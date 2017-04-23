@@ -10,9 +10,9 @@ import com.punchlines.punchline.paas.Punchline;
 public class PunchlineLayout {
 
     public static void displayPunchline(Activity activity, View view, Punchline punchline) {
-        TextView text = (TextView) view.findViewById(R.id.punchline);
-        TextView artist = (TextView) view.findViewById(R.id.artist);
-        TextView album = (TextView) view.findViewById(R.id.album);
+        TextView text = (TextView) view.findViewById(R.id.punchline_text);
+        TextView artist = (TextView) view.findViewById(R.id.punchline_artist);
+        TextView album = (TextView) view.findViewById(R.id.punchline_album);
 
         activity.runOnUiThread(() -> {
             text.setText(punchline.punchline);

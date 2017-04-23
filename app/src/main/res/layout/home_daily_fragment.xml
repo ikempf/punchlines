@@ -6,6 +6,6 @@
 
     <include
         android:id="@+id/daily"
-        layout="@layout/punchline_layout" />
+        layout="@layout/home_punchline_layout" />
 
 </RelativeLayout>

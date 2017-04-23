@@ -6,7 +6,7 @@ import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 
 import com.punchlines.R;
-import com.punchlines.punchline.tabs.TabsActivity;
+import com.punchlines.punchline.home.tabs.HomeActivity;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -16,7 +16,7 @@ public class SplashActivity extends AppCompatActivity {
         setContentView(R.layout.splash_activity);
 
         new Handler().postDelayed(() -> {
-            Intent intent = new Intent(SplashActivity.this, TabsActivity.class);
+            Intent intent = new Intent(SplashActivity.this, HomeActivity.class);
             startActivity(intent);
         }, 1000);
     }

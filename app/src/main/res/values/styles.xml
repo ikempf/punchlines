@@ -3,13 +3,13 @@
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="colorPrimary">@color/primary</item>
         <item name="colorPrimaryDark">@color/primaryDark</item>
-        <item name="android:textColorPrimary">@color/textColor</item>
-        <item name="android:textColorSecondary">@color/textColorInactive</item>
+        <item name="android:textColorPrimary">@color/textColorActive</item>
+        <item name="android:textColorSecondary">@color/textColorPrimary</item>
         <item name="android:textViewStyle">@style/CustomTextViewStyle</item>
     </style>
 
     <style name="CustomTextViewStyle" parent="android:Widget.TextView">
-        <item name="android:textColor">@color/textColorInactive</item>
+        <item name="android:textColor">@color/textColorPrimary</item>
     </style>
 
 </resources>

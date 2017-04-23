@@ -1,4 +1,4 @@
-package com.punchlines.punchline.random;
+package com.punchlines.punchline.home.random;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -23,7 +23,7 @@ public class RandomPunchlineFragment extends PunchlineFragment implements View.O
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
 
-        return inflater.inflate(R.layout.random_fragment, container, false);
+        return inflater.inflate(R.layout.home_random_fragment, container, false);
     }
 
     @Override

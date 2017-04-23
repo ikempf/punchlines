@@ -1,4 +1,4 @@
-package com.punchlines.punchline.daily;
+package com.punchlines.punchline.home.daily;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -23,7 +23,7 @@ public class DailyPunchlineFragment extends PunchlineFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
 
-        return inflater.inflate(R.layout.daily_fragment, container, false);
+        return inflater.inflate(R.layout.home_daily_fragment, container, false);
     }
 
     @Override
