@@ -16,6 +16,7 @@ import javax.inject.Inject
 
 import android.util.TypedValue.COMPLEX_UNIT_PX
 import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
+import kotlinx.android.synthetic.main.artists_activity.*
 
 class ArtistsActivity : PunchlineActivity() {
 
@@ -33,16 +34,15 @@ class ArtistsActivity : PunchlineActivity() {
         displayArtists()
     }
 
-    private fun displayArtists() {
-        val artistList = findViewById(R.id.artists_list) as LinearLayout
-
-        service.artists()
-                .thenAccept { artists ->
-                    artists.forEach {
-                        artist -> runOnUiThread { artistList.addView(artistView(artist)) }
+    private fun displayArtists() =
+            service.artists()
+                    .thenAccept {
+                        artists ->
+                        artists.forEach {
+                            artist ->
+                            runOnUiThread { artists_list.addView(artistView(artist)) }
+                        }
                     }
-                }
-    }
 
     private fun artistView(artist: String): TextView {
         val artistView = TextView(this)
@@ -63,6 +63,6 @@ class ArtistsActivity : PunchlineActivity() {
     }
 
     override fun inject(component: PunchlineComponent) =
-        component.inject(this)
+            component.inject(this)
 
 }

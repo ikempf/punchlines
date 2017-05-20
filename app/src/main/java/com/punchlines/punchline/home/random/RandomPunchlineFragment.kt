@@ -13,6 +13,7 @@ import com.punchlines.punchline.paas.PaasService
 import com.punchlines.punchline.paas.Punchline
 
 import javax.inject.Inject
+import kotlinx.android.synthetic.main.home_random_fragment.*
 
 class RandomPunchlineFragment : PunchlineFragment(), View.OnClickListener {
 
@@ -33,7 +34,7 @@ class RandomPunchlineFragment : PunchlineFragment(), View.OnClickListener {
                 .thenAccept(this::displayPunchline)
                 .thenRun(this::hideSpinner)
 
-        findViewById(R.id.next_punchline).setOnClickListener(this)
+        next_punchline.setOnClickListener(this)
     }
 
     fun nextPunchline() {
@@ -45,21 +46,17 @@ class RandomPunchlineFragment : PunchlineFragment(), View.OnClickListener {
     }
 
     private fun displayPunchline(p: Punchline) =
-        PunchlineLayout.displayPunchline(activity, findViewById(R.id.random), p)
+            PunchlineLayout.displayPunchline(activity, random_punchline, p)
 
     fun showSpinner() = spinnerDisplay(true)
 
     fun hideSpinner() = spinnerDisplay(false)
 
-    fun spinnerDisplay(showSpinner: Boolean) {
-        val spinner = findViewById(R.id.progress_loader)
-        val nextPunchline = findViewById(R.id.next_punchline)
-
-        runOnUiThread {
-            spinner.visibility = if (showSpinner) View.VISIBLE else View.GONE
-            nextPunchline.visibility = if (showSpinner) View.GONE else View.VISIBLE
-        }
-    }
+    fun spinnerDisplay(showSpinner: Boolean) =
+            runOnUiThread {
+                progress_loader.visibility = if (showSpinner) View.VISIBLE else View.GONE
+                next_punchline.visibility = if (showSpinner) View.GONE else View.VISIBLE
+            }
 
     override fun onClick(v: View) {
         if (v.id == R.id.next_punchline)
@@ -67,6 +64,6 @@ class RandomPunchlineFragment : PunchlineFragment(), View.OnClickListener {
     }
 
     override fun inject(component: PunchlineComponent) =
-        component.inject(this)
+            component.inject(this)
 
 }

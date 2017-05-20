@@ -13,6 +13,7 @@ import com.punchlines.punchline.paas.PaasService
 import javax.inject.Inject
 
 import com.punchlines.punchline.common.display.PunchlineLayout.displayPunchline
+import kotlinx.android.synthetic.main.home_daily_fragment.*
 
 class DailyPunchlineFragment : PunchlineFragment() {
 
@@ -29,7 +30,7 @@ class DailyPunchlineFragment : PunchlineFragment() {
         super.onActivityCreated(savedInstanceState)
 
         service.dailyPunchline()
-                .thenAccept { p -> displayPunchline(activity!!, findViewById(R.id.daily), p) }
+                .thenAccept { p -> displayPunchline(activity!!, daily_punchline, p) }
     }
 
     override fun inject(component: PunchlineComponent) =

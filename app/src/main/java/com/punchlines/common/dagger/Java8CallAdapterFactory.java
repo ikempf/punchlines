@@ -1,4 +1,4 @@
-package com.punchlines.common;
+package com.punchlines.common.dagger;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.ParameterizedType;

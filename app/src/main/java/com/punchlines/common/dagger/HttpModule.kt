@@ -3,7 +3,6 @@ package com.punchlines.common.dagger
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.module.kotlin.KotlinModule
 import com.punchlines.application.Configuration
-import com.punchlines.common.Java8CallAdapterFactory
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient

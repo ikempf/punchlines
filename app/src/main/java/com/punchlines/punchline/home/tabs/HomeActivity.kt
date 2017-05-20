@@ -11,6 +11,7 @@ import android.view.MenuItem
 
 import com.punchlines.R
 import com.punchlines.punchline.artists.ArtistsActivity
+import kotlinx.android.synthetic.main.home_activity.*
 
 class HomeActivity : AppCompatActivity() {
 
@@ -19,11 +20,9 @@ class HomeActivity : AppCompatActivity() {
 
         setContentView(R.layout.home_activity)
 
-        val pager = findViewById(R.id.pager) as ViewPager
         pager.adapter = HomeTabPager(supportFragmentManager, this)
 
-        val tabLayout = findViewById(R.id.sliding_tabs) as TabLayout
-        tabLayout.setupWithViewPager(pager)
+        sliding_tabs.setupWithViewPager(pager)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

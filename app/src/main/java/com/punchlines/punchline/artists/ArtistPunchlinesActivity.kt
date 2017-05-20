@@ -16,6 +16,7 @@ import com.punchlines.punchline.common.dagger.PunchlineComponent
 import com.punchlines.punchline.paas.PaasService
 import com.punchlines.punchline.paas.Punchline
 import javax.inject.Inject
+import kotlinx.android.synthetic.main.artists_artist_punchlines_activity.*
 
 class ArtistPunchlinesActivity : PunchlineActivity() {
 
@@ -43,19 +44,16 @@ class ArtistPunchlinesActivity : PunchlineActivity() {
         displayArtistPunchlines(artist)
     }
 
-    private fun displayArtistPunchlines(artist: String) {
-        val artistPunchlines = findViewById(R.id.artist_punchlines_list) as LinearLayout
-
-        service.artistPunchlines(artist)
-                .thenAccept { punchlines ->
-                    punchlines.forEach { punchline ->
-                        runOnUiThread {
-                            artistPunchlines.addView(punchlineView(punchline))
-                            artistPunchlines.addView(separator())
+    private fun displayArtistPunchlines(artist: String) =
+            service.artistPunchlines(artist)
+                    .thenAccept { punchlines ->
+                        punchlines.forEach { punchline ->
+                            runOnUiThread {
+                                artist_punchlines_list.addView(punchlineView(punchline))
+                                artist_punchlines_list.addView(separator())
+                            }
                         }
                     }
-                }
-    }
 
     private fun separator(): View {
         val separator = View(this)

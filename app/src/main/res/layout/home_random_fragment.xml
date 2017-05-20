@@ -8,7 +8,7 @@
     android:paddingTop="@dimen/activity_vertical_margin">
 
     <include
-        android:id="@+id/random"
+        android:id="@+id/random_punchline"
         layout="@layout/home_punchline_layout"/>
 
     <!--TODO: Use a container without display semantics -->
