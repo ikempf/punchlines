@@ -17,8 +17,7 @@ import com.punchlines.punchline.common.display.PunchlineLayout.displayPunchline
 class DailyPunchlineFragment : PunchlineFragment() {
 
     @Inject
-    @JvmField
-    var service: PaasService? = null
+    lateinit var service: PaasService
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
@@ -29,7 +28,7 @@ class DailyPunchlineFragment : PunchlineFragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        service!!.dailyPunchline()
+        service.dailyPunchline()
                 .thenAccept { p -> displayPunchline(activity!!, findViewById(R.id.daily), p) }
     }
 

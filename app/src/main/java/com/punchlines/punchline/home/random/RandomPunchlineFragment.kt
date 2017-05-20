@@ -17,8 +17,7 @@ import javax.inject.Inject
 class RandomPunchlineFragment : PunchlineFragment(), View.OnClickListener {
 
     @Inject
-    @JvmField
-    var service: PaasService? = null
+    lateinit var service: PaasService
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
@@ -30,7 +29,7 @@ class RandomPunchlineFragment : PunchlineFragment(), View.OnClickListener {
         super.onActivityCreated(savedInstanceState)
 
         showSpinner()
-        service!!.randomPunchline()
+        service.randomPunchline()
                 .thenAccept(this::displayPunchline)
                 .thenRun(this::hideSpinner)
 
@@ -40,7 +39,7 @@ class RandomPunchlineFragment : PunchlineFragment(), View.OnClickListener {
     fun nextPunchline() {
         runOnUiThread { this.showSpinner() }
 
-        service!!.randomPunchline()
+        service.randomPunchline()
                 .thenAccept(this::displayPunchline)
                 .thenRun { runOnUiThread(this::hideSpinner) }
     }
@@ -48,11 +47,9 @@ class RandomPunchlineFragment : PunchlineFragment(), View.OnClickListener {
     private fun displayPunchline(p: Punchline) =
         PunchlineLayout.displayPunchline(activity, findViewById(R.id.random), p)
 
-    fun showSpinner() =
-        spinnerDisplay(true)
+    fun showSpinner() = spinnerDisplay(true)
 
-    fun hideSpinner() =
-        spinnerDisplay(false)
+    fun hideSpinner() = spinnerDisplay(false)
 
     fun spinnerDisplay(showSpinner: Boolean) {
         val spinner = findViewById(R.id.progress_loader)
@@ -64,12 +61,12 @@ class RandomPunchlineFragment : PunchlineFragment(), View.OnClickListener {
         }
     }
 
-    override fun inject(component: PunchlineComponent) =
-        component.inject(this)
-
     override fun onClick(v: View) {
         if (v.id == R.id.next_punchline)
             nextPunchline()
     }
+
+    override fun inject(component: PunchlineComponent) =
+        component.inject(this)
 
 }
