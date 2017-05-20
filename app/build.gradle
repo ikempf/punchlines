@@ -1,6 +1,5 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
-apply plugin: 'idea'
 
 android {
     compileSdkVersion 25
@@ -20,18 +19,12 @@ android {
         }
     }
     packagingOptions {
+        exclude 'LICENSE'
         exclude 'META-INF/LICENSE'
     }
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
-    apply plugin: 'com.android.application'
-    apply plugin: 'me.tatarka.retrolambda'
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
