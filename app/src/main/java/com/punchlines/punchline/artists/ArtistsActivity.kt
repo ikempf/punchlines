@@ -19,6 +19,10 @@ import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
 
 class ArtistsActivity : PunchlineActivity() {
 
+    companion object {
+        private val ARTIST_LAYOUT = LayoutParams(WRAP_CONTENT, WRAP_CONTENT)
+    }
+
     @Inject
     lateinit internal var service: PaasService
 
@@ -47,7 +51,7 @@ class ArtistsActivity : PunchlineActivity() {
         artistView.setTextColor(ContextCompat.getColor(this, R.color.textColorPrimary))
         artistView.setTextSize(COMPLEX_UNIT_PX, resources.getDimension(R.dimen.text_big))
 
-        artistView.setOnClickListener { v -> showArtistsPunchlines(artist) }
+        artistView.setOnClickListener { _ -> showArtistsPunchlines(artist) }
 
         return artistView
     }
@@ -58,14 +62,7 @@ class ArtistsActivity : PunchlineActivity() {
         startActivity(intent)
     }
 
-    override fun inject(component: PunchlineComponent) {
+    override fun inject(component: PunchlineComponent) =
         component.inject(this)
-    }
-
-    companion object {
-
-        private val ARTIST_LAYOUT = LayoutParams(WRAP_CONTENT, WRAP_CONTENT)
-
-    }
 
 }

@@ -1,4 +1,4 @@
-package com.punchlines.configuration;
+package com.punchlines.application;
 
 public class Configuration {
 

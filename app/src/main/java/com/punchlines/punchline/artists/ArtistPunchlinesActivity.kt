@@ -22,6 +22,17 @@ import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
 
 class ArtistPunchlinesActivity : PunchlineActivity() {
 
+    companion object {
+        val ARTIST = "artist"
+
+        private val PUNCHLINE_LAYOUT = LayoutParams(WRAP_CONTENT, WRAP_CONTENT)
+        private val SEPARATOR_LAYOUT = LayoutParams(MATCH_PARENT, 1)
+
+        init {
+            SEPARATOR_LAYOUT.setMargins(0, 50, 0, 50)
+        }
+    }
+
     @Inject
     lateinit internal var service: PaasService
 
@@ -68,21 +79,7 @@ class ArtistPunchlinesActivity : PunchlineActivity() {
         return punchlineView
     }
 
-
     override fun inject(component: PunchlineComponent) =
-        component.inject(this)
-
-    companion object {
-
-        val ARTIST = "artist"
-
-        private val PUNCHLINE_LAYOUT = LayoutParams(WRAP_CONTENT, WRAP_CONTENT)
-        private val SEPARATOR_LAYOUT = LayoutParams(MATCH_PARENT, 1)
-
-        init {
-            SEPARATOR_LAYOUT.setMargins(0, 50, 0, 50)
-        }
-
-    }
+            component.inject(this)
 
 }
