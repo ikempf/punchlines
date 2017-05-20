@@ -2,23 +2,20 @@ package com.punchlines.punchline.artists
 
 import android.os.Bundle
 import android.support.v4.content.ContextCompat
+import android.util.TypedValue.COMPLEX_UNIT_PX
 import android.view.Gravity
 import android.view.View
+import android.view.ViewGroup.LayoutParams.MATCH_PARENT
+import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
 import android.widget.LinearLayout
 import android.widget.LinearLayout.LayoutParams
 import android.widget.TextView
-
 import com.punchlines.R
 import com.punchlines.punchline.common.dagger.PunchlineActivity
 import com.punchlines.punchline.common.dagger.PunchlineComponent
 import com.punchlines.punchline.paas.PaasService
 import com.punchlines.punchline.paas.Punchline
-
 import javax.inject.Inject
-
-import android.util.TypedValue.COMPLEX_UNIT_PX
-import android.view.ViewGroup.LayoutParams.MATCH_PARENT
-import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
 
 class ArtistPunchlinesActivity : PunchlineActivity() {
 

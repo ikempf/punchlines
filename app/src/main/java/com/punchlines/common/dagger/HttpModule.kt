@@ -1,5 +1,7 @@
 package com.punchlines.common.dagger
 
+import com.fasterxml.jackson.databind.ObjectMapper
+import com.fasterxml.jackson.module.kotlin.KotlinModule
 import com.punchlines.application.Configuration
 import com.punchlines.common.Java8CallAdapterFactory
 import dagger.Module
@@ -14,7 +16,11 @@ import javax.inject.Singleton
 class HttpModule {
 
     @Provides @Singleton
-    internal fun providesRetrofit(): Retrofit {
+    internal fun providesObjectMapper(): ObjectMapper =
+        ObjectMapper().registerModule(KotlinModule())
+
+    @Provides @Singleton
+    internal fun providesRetrofit(objectMapper: ObjectMapper): Retrofit {
         val interceptor = HttpLoggingInterceptor()
         interceptor.level = HttpLoggingInterceptor.Level.BODY
         val client = OkHttpClient.Builder().addInterceptor(interceptor).build()
@@ -22,7 +28,7 @@ class HttpModule {
         return Retrofit.Builder()
                 .client(client)
                 .baseUrl(Configuration.API_URL)
-                .addConverterFactory(JacksonConverterFactory.create())
+                .addConverterFactory(JacksonConverterFactory.create(objectMapper))
                 .addCallAdapterFactory(Java8CallAdapterFactory.create())
                 .build()
     }
