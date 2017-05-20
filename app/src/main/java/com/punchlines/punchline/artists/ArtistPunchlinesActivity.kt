@@ -47,10 +47,11 @@ class ArtistPunchlinesActivity : PunchlineActivity() {
     private fun displayArtistPunchlines(artist: String) =
             service.artistPunchlines(artist)
                     .thenAccept { punchlines ->
-                        punchlines.forEach { punchline ->
+                        punchlines.forEachIndexed { i, punchline ->
                             runOnUiThread {
                                 artist_punchlines_list.addView(punchlineView(punchline))
-                                artist_punchlines_list.addView(separator())
+                                if (i != punchlines.size - 1)
+                                    artist_punchlines_list.addView(separator())
                             }
                         }
                     }

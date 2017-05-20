@@ -36,10 +36,8 @@ class ArtistsActivity : PunchlineActivity() {
 
     private fun displayArtists() =
             service.artists()
-                    .thenAccept {
-                        artists ->
-                        artists.forEach {
-                            artist ->
+                    .thenAccept { artists ->
+                        artists.forEach { artist ->
                             runOnUiThread { artists_list.addView(artistView(artist)) }
                         }
                     }
