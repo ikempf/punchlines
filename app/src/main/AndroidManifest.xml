@@ -24,6 +24,9 @@
             android:label="@string/artists"
             android:name=".punchline.artists.ArtistsActivity" />
         <activity android:name=".punchline.artists.ArtistPunchlinesActivity" />
+        <activity
+            android:label="@string/setting_activity"
+            android:name=".punchline.settings.SettingsActivity" />
     </application>
 
 
